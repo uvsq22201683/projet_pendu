@@ -194,24 +194,24 @@ def create_fenetre_def_eni_root(mot, action, sous_action = None):
 
     if res[-1] == 'error':
         def_eni_root.title('error')
-        t_text1 = tk.Label(def_eni_root, text = res[0], font = ('Chalkduster',"10"), 
+        t_text1 = tk.Label(def_eni_root, text = res[0], font = ('Impact',"13"), 
                            bg = "#C0BCB5", fg = "#404040", padx = 20)
 
     elif action == 'enigme':
 
         def_eni_root.title('enigme')
-        t_title = tk.Label(def_eni_root, text = 'Enigme', font = ('Chalkduster',"15"), 
+        t_title = tk.Label(def_eni_root, text = 'Enigme', font = ('Impact',"20"), 
                            bg = "#C0BCB5", fg = "#404040", padx = 20)
 
-        t_text1 = tk.Label(def_eni_root, text = res[0], font = ('Chalkduster',"10"), 
+        t_text1 = tk.Label(def_eni_root, text = res[0], font = ('Impact',"15"), 
                            bg = "#C0BCB5", padx = 10)
-        t_text2 = tk.Label(def_eni_root, text = res[1], font = ('Chalkduster',"10"), 
+        t_text2 = tk.Label(def_eni_root, text = res[1], font = ('Impact',"15"), 
                            bg = "#C0BCB5", padx = 10)
         
         if res[-1] == 'citation':
-            t_text3 = tk.Label(def_eni_root, text = res[2], font = ('Chalkduster',"10"), 
+            t_text3 = tk.Label(def_eni_root, text = res[2], font = ('Impact',"15"), 
                                bg = "#C0BCB5", padx = 10)
-            t_text4 = tk.Label(def_eni_root, text = res[3], font = ('Chalkduster',"10"), 
+            t_text4 = tk.Label(def_eni_root, text = res[3], font = ('Impact',"15"), 
                                bg = "#C0BCB5", padx = 10)
 
             t_text3.grid(row = 3, column = 1)
@@ -223,11 +223,11 @@ def create_fenetre_def_eni_root(mot, action, sous_action = None):
 
     else:
         def_eni_root.title('definition')
-        t_title = tk.Label(def_eni_root, text = res[0].capitalize(), font = ('Chalkduster',"15"), 
+        t_title = tk.Label(def_eni_root, text = res[0].capitalize(), font = ('Impact',"17"), 
                            bg = "#C0BCB5", fg = "#404040", padx = 20)
-        t_text1 = tk.Label(def_eni_root, text = res[1], font = ('Chalkduster',"10"), 
+        t_text1 = tk.Label(def_eni_root, text = res[1], font = ('Impact',"15"), 
                            bg = "#C0BCB5", padx = 10)
-        t_text2 = tk.Label(def_eni_root, text = res[2], font = ('Chalkduster',"10"), 
+        t_text2 = tk.Label(def_eni_root, text = res[2], font = ('Impact',"15"), 
                            bg = "#C0BCB5", padx = 10)
 
         t_title.grid(row = 0, column = 0, columnspan = 2, padx = 10)
@@ -235,7 +235,7 @@ def create_fenetre_def_eni_root(mot, action, sous_action = None):
         
     t_text1.grid(row = 1, column = 1)
 
-    b_quitter = tk.Button(def_eni_root, text = 'Quitter', 
+    b_quitter = tk.Button(def_eni_root, text = 'Quitter',font = ('Impact', '15'),
                           command = lambda: fermer_fenetre_def_eni_root(def_eni_root))
     b_quitter.grid(column = 1, row = 7, padx = 5)
 
@@ -264,26 +264,26 @@ def create_bouton_ask_eni(mot, ask_eni_root, image_to_lettre1, nlp1):
     image_to_lettre = image_to_lettre1
     nlp = nlp1
 
-    ask_eni_bouton = tk.Button(ask_eni_root, text = 'Enigme', 
+    ask_eni_bouton = tk.Button(ask_eni_root, text = 'Enigme',font = ('Impact', '15'), 
                                command = lambda: create_fenetre_def_eni_root(mot, 'enigme', sous_action))
     ask_eni_bouton1 =  tk.Menubutton(ask_eni_root, text = "Choisir le type d'enigme", 
-                                     relief = 'ridge',fg ='white', bg ='green' )
+                                     relief = 'ridge',fg = 'white', bg = 'green', font = ('Impact', '13'))
     ask_eni_bouton1.menu = tk.Menu(ask_eni_bouton1, tearoff = 0 )
     ask_eni_bouton1["menu"] =  ask_eni_bouton1.menu
 
-    ask_eni_bouton1.menu.add_command(label = 'Homonyme', 
+    ask_eni_bouton1.menu.add_command(label = 'Homonyme', font = ('Impact', '13'),
                                      command = lambda : choisir_sous_action('homonymes'))
-    ask_eni_bouton1.menu.add_command(label = 'Citation',  
+    ask_eni_bouton1.menu.add_command(label = 'Citation', font = ('Impact', '13'),  
                                      command = lambda : choisir_sous_action('citations'))
-    ask_eni_bouton1.menu.add_command(label = 'Locution', 
+    ask_eni_bouton1.menu.add_command(label = 'Locution', font = ('Impact', '13'), 
                                      command = lambda : choisir_sous_action('locutions'))
-    ask_eni_bouton1.menu.add_command(label = 'Lettre', 
+    ask_eni_bouton1.menu.add_command(label = 'Lettre', font = ('Impact', '13'),
                                      command = lambda : choisir_sous_action('lettre'))
-    ask_eni_bouton1.menu.add_command(label = 'Tout', 
+    ask_eni_bouton1.menu.add_command(label = 'Tout', font = ('Impact', '13'),
                                      command = lambda : choisir_sous_action(None))
 
     ask_eni_bouton.place(x = 450 + (40 * int(len(mot) / 2)) + 50, y = 445)
-    ask_eni_bouton1.place(x = 450 + (40 * int(len(mot) / 2)) + 50, y = 465)
+    ask_eni_bouton1.place(x = 450 + (40 * int(len(mot) / 2)) + 50, y = 480)
 
 """
 choisir le mot
@@ -373,13 +373,13 @@ def generer_mot():
 
     creer_mot.destroy()
     mot_par_len = tk.Button(debutjeu,text="Choisir le mot par longueur", 
-                            command = choix_len, font = ('Chalkduster',"10"), relief = 'ridge')                        
-    mot_par_len.place(x = 220, y = 270)
+                            command = choix_len, font = ('Impact',"15"), relief = 'ridge')                        
+    mot_par_len.place(anchor = 'center', x = 582, y = 270)
     mot_par_classe = tk.Button(debutjeu, text = "Choisir par catégorie", 
-                               command = choix_classe, font = ('Chalkduster',"10"), relief = 'ridge')                             
-    mot_par_classe.place(x = 530, y = 270)
+                               command = choix_classe, font = ('Impact',"15"), relief = 'ridge')                             
+    mot_par_classe.place(anchor = 'center',x = 348, y = 270)
     l_err_choix = tk.Label(debutjeu, text = 'Choisissez le nombre de tentatives possible :', 
-                           font = ('Chalkduster',"10"), bg = "#C0BCB5", fg = "#404040")
+                           font = ('Impact',"15"), bg = "#C0BCB5", fg = "#404040")
     l_err_choix.place(x = 180, y = 170)
     nb_err_dispo = tk.Scale (debutjeu, from_ = 1, to = 8 , orient = 'horizontal',
                              bg = "#C0BCB5", length = 200,  troughcolor = "#404040", highlightthickness = 0)                            
@@ -396,10 +396,10 @@ def debut(event):
 
     play.destroy()
     phrase.destroy()
-    titre.config(font = ('Chalkduster',"30"))
+    titre.config(font = ('Impact',"35"))
     creer_mot = tk.Button(debutjeu,text = "Générer un mot", 
-                          font = ('Chalkduster',"15"), fg = "#5A5A5A", command=generer_mot, relief = 'ridge')     
-    creer_mot.place(x = 380, y = 290)
+                          font = ('Impact',"20"), fg = "#5A5A5A", command=generer_mot, relief = 'ridge', activebackground = '#6F6F6F')  
+    creer_mot.place(x = 365, y = 290)
 
 
 def choix_len():
@@ -415,9 +415,9 @@ def choix_len():
     except: pass
 
     entry_len = tk.Entry(debutjeu)   
-    donner_len = tk.Label(debutjeu, text = 'Longueur ?',font = ('Chalkduster',"10"))  
-    entry_len.place(x = 390, y = 440)
-    donner_len.place(x = 420, y = 420)
+    donner_len = tk.Label(debutjeu, text = 'Longueur ?',font = ('Impact',"15"))  
+    entry_len.place(anchor = 'center', x = 465, y = 420)
+    donner_len.place(anchor ='center', x = 465, y = 395)
     entry_len.bind("<Return>", config_len) 
 
 
@@ -452,9 +452,9 @@ def choix_classe():
     except: pass
     entry_classe = tk.Entry(debutjeu)
     donner_categorie = tk.Label(debutjeu,text = "Catégorie ?",
-                                font = ('Chalkduster',"10"))
-    entry_classe.place(x = 390, y = 440)
-    donner_categorie.place(x = 420, y = 420)
+                                font = ('Impact',"15"))
+    entry_classe.place(anchor = 'center',x = 465, y = 420)
+    donner_categorie.place(anchor = 'center', x = 465, y = 395)
     entry_classe.bind("<Return>",config_classe)
  
     
@@ -512,15 +512,15 @@ def gagne_perdu(gagne_perdu, mot = ''):
         img = ImageTk.PhotoImage(img, master = racine)
         label = tk.Label(racine, image = img)
         label.place(x=0, y=0)
-        gagne=tk.Label(racine, text = "Félicitations vous avez gagné !",font = ("Chalkduster", 25))
+        gagne=tk.Label(racine, text = "Félicitations vous avez gagné !",font = ("Impact", 30))
         gagne.place(anchor = 'center', x = 300, y = 175)
         sessions = tk.Label(racine,text=f"Tu as gagné {dico_joueurs_gagne[nom][0]} sessions",
-                             font=("Chalkduster", 10))
+                             font = ("Impact", 15))
         sessions.place(x = 400, y = 0)
 
         sessions1 = tk.Label(racine,text=f"Durant ce jeu tu as utilise {nb_pas} tentatives", 
-                             font=("Chalkduster", 10))
-        sessions1.place(x = 350, y = 22)
+                             font = ("Impact", 15))
+        sessions1.place(x = 340, y = 22)
 
     
     else:
@@ -538,26 +538,26 @@ def gagne_perdu(gagne_perdu, mot = ''):
         img = ImageTk.PhotoImage(img, master = racine)
         label = tk.Label(racine, image = img,bg = "#BB2222")
         label.place(anchor = 'nw', x=10, y=0)
-        gagne=tk.Label(racine, text = "Vous avez perdu...",font=("Chalkduster", 27),bg = "#BB2222")
-        perdu = tk.Label(racine, text = f'Le mot cache etait "{mot}"',font=("Chalkduster", 18),bg = "#BB2222")
+        gagne=tk.Label(racine, text = "Vous avez perdu...",font = ("Impact", 30),bg = "#BB2222")
+        perdu = tk.Label(racine, text = f'Le mot cache etait "{mot}"',font = ("Impact", 20),bg = "#BB2222")
         gagne.place(anchor ='center', x = 300, y = 100)
         perdu.place(anchor = 'center', x = 300, y = 160)
 
         #nb victoires changer par la fonction
         sessions = tk.Label(racine,text=f"Tu as gagné {dico_joueurs_gagne[nom][0]} sessions",
-                             font=("Chalkduster", 10), bg = "#BB2222")
+                             font = ("Impact", 15), bg = "#BB2222")
         sessions.place(x = 400, y = 0)
 
         sessions1 = tk.Label(racine,text=f"Durant ce jeu tu as utilise {nb_pas} tentatives", 
-                             font=("Chalkduster", 10),bg = "#BB2222")
+                             font = ("Impact", 15),bg = "#BB2222")
         sessions1.place(x = 350, y = 22)
 
     #boutons
     restart1 = tk.Button(racine, text="Recommencer une partie ", relief = 'ridge', bg = '#5C5C5C',
-                         command = recommencer,font = ("Chalkduster", 10), highlightthickness = 0)
+                         command = recommencer,font = ("Impact", 15), highlightthickness = 0)
     restart1.place(anchor = 'center', x = 300, y = 240)
     b_quitter = tk.Button(racine, text = 'Quitter', command = lambda: destroy_root(racine), 
-                          relief = 'ridge', bg = '#5C5C5C')
+                          relief = 'ridge', bg = '#5C5C5C', font = ('Impact','15'))
     b_quitter.place(anchor='center', x = 300, y = 280)
     
 
@@ -590,13 +590,13 @@ def root_debut_jeu():
                      bd = '0', highlightthickness = 0)
     photo = ImageTk.PhotoImage(Image.open("./utils/play1.png")) 
     play.create_image(0,0,anchor = 'nw', image = photo)
-    titre = tk.Label(debutjeu, font = ('Chalkduster',"30"), text = "Le jeu du pendu", 
+    titre = tk.Label(debutjeu, font = ('Impact',"45"), text = "Le jeu du pendu", 
                      bg = "#5A5A5A", fg = "#C0BCB5")
-    phrase=tk.Label(debutjeu, font = ('Chalkduster',"15"), 
+    phrase=tk.Label(debutjeu, font = ('Impact',"20"), 
                     text = "Allez-vous réussir à échapper à la pendaison ?", 
                     fg = "#404040", bg = '#C0BCB5')
     b_quitter = tk.Button(debutjeu, text = 'Quitter', command = lambda: \
-        destroy_root(debutjeu), relief = 'ridge', bg = '#5C5C5C')
+        destroy_root(debutjeu), relief = 'ridge', bg = '#5C5C5C', font = ('Impact','15'))
                           
     #placement accueil
     titre.pack(side = 'top', pady = 20)
@@ -607,7 +607,7 @@ def root_debut_jeu():
     play.bind("<Button-1>", debut)
 
     b_score = tk.Button(debutjeu, text = 'Score', command = root_score, 
-                          relief = 'ridge', bg = '#5C5C5C')
+                          relief = 'ridge', bg = '#5C5C5C', font = ('Impact', '15'))
     b_score.pack(side = 'bottom')
 
     debutjeu.mainloop()
@@ -837,11 +837,11 @@ def root_jeu():
     jeu = tk.Tk()
     jeu.title("Jeu du pendu")
     jeu.config(bg = "#C0BCB5")
-    jeu.geometry("900x720")
+    jeu.geometry("930x720")
     jeu.resizable(width = False, height = False) 
 
 
-    titre1 = tk.Label(jeu, font = ('Chalkduster',"30"), text = "Le jeu du pendu", 
+    titre1 = tk.Label(jeu, font = ('Impact',"35"), text = "Le jeu du pendu", 
                       bg = "#404040", fg = "#C0BCB5")
     titre1.pack(side = "top")
     
@@ -891,31 +891,31 @@ def root_jeu():
     zone_nom.bind("<Return>", confirm_nom) 
 
 
-    joueur = tk.Label(jeu, text = "Joueur :") 
+    joueur = tk.Label(jeu, text = "Joueur :", font = ('Impact', '15')) 
     joueur.bind("<Button-1>", new_nom) 
 
-    zone_nom.place(x=60, y=3, anchor='nw')
-    joueur.place(x = 0, y =3, anchor='nw')
+    zone_nom.place(x = 60, y = 3, anchor = 'nw')
+    joueur.place(x = 0, y = 5, anchor = 'nw')
 
     if nom != 'Current':
         confirm_nom(0)
 
     b_recommencer = tk.Button(jeu, text = 'Recommencer', command = recommencer, 
-                          relief = 'ridge', bg = '#5C5C5C')
-    b_recommencer.place(x = 800, y = 20)
+                          relief = 'ridge', bg = '#5C5C5C', font = ('Impact','15'))
+    b_recommencer.place(x = 800, y = 15)
 
-    b_quitter = tk.Button(jeu, text = 'Quitter', 
+    b_quitter = tk.Button(jeu, text = 'Quitter',font = ('Impact','15'), 
                           command = lambda: destroy_root(jeu), relief = 'ridge', bg = '#5C5C5C')
                           
     b_quitter.place(x = 820, y =50)
 
     b_score = tk.Button(jeu, text = 'Score', command = root_score, 
-                          relief = 'ridge', bg = '#5C5C5C')
-    b_score.place(x=825, y=80)
+                          relief = 'ridge', bg = '#5C5C5C', font = ('Impact','15'))
+    b_score.place(x = 825, y = 85)
     
 
     l_tentatives = tk.Label(jeu, text = f'Il te reste {nb_err_dispo} tentatives',
-                            font=('Chalkduster',"10"), bg="#C0BCB5", fg="#404040")
+                            font = ('Impact',"15"), bg = "#C0BCB5", fg = "#404040")
     l_tentatives.place(x = 720, y =260)
 
     jeu.mainloop()
@@ -932,12 +932,12 @@ def get_score():
     global l_error
 
     if nom in list(dico_joueurs_gagne):
-        titre = tk.Label(root, font = ('Chalkduster',"30"), text = f"Score de {nom}", 
+        titre = tk.Label(root, font = ('Impact',"30"), text = f"Score de {nom}", 
                          bg = "#C0BCB5", fg = "#404040", pady = 20)
         titre.pack(side = 'top')
             
         l_nb_gains = tk.Label(root,text = f'Vous avez gagne {dico_joueurs_gagne[nom][0]}\
-                             parties', font = ('Chalkduster',"20"),bg = "#C0BCB5", fg = "#404040",pady = 10)
+                             parties', font = ('Impact',"25"),bg = "#C0BCB5", fg = "#404040",pady = 10)
                                 
             
         nb_pas_moyen = 0
@@ -946,7 +946,7 @@ def get_score():
         while i < 5:
             try:
                 l_nb_pas.append(tk.Label(root, text = f'mot "{dico_joueurs_gagne[nom][1][-(i+1)][0]}": \
-                    {dico_joueurs_gagne[nom][1][-(i+1)][1]} pas',font = ('Chalkduster',"10"),
+                    {dico_joueurs_gagne[nom][1][-(i+1)][1]} pas',font = ('Impact',"15"),
                     bg = "#C0BCB5", fg = "#404040", padx = 40))
                                 
                 nb_pas_moyen += dico_joueurs_gagne[nom][1][-(i+1)][1]
@@ -957,14 +957,14 @@ def get_score():
 
         try:
             l_nb_moyen_gains = tk.Label(root,text = f'Votre nombre moyen de tentatives est \
-                {int(nb_pas_moyen/i)} ', font = ('Chalkduster',"15"),bg = "#C0BCB5", 
+                {int(nb_pas_moyen/i)} ', font = ('Impact',"18"),bg = "#C0BCB5", 
                 fg = "#404040", pady = 15)
                                             
             l_nb_moyen_gains.pack(side = 'top')
         except ZeroDivisionError: pass
 
         l_text = tk.Label(root,text = f'Vos tentatives:', 
-                            font = ('Chalkduster',"15"),bg = "#C0BCB5", fg = "#404040", pady = 15)
+                            font = ('Impact',"20"),bg = "#C0BCB5", fg = "#404040", pady = 15)
         l_text.pack(side = 'top')
 
         for i in range(len(l_nb_pas)):
@@ -1015,7 +1015,7 @@ def root_score():
         
         
     b_quitter = tk.Button(root, text = 'Quitter', command = lambda: destroy_root(root), 
-                          relief = 'ridge', bg = '#5C5C5C')
+                          relief = 'ridge', bg = '#5C5C5C', font = ('Impact','15'))
     b_quitter.pack(side='bottom')
     
     root.mainloop()
@@ -1044,18 +1044,18 @@ def wait_load_lib():
     root.geometry("600x400") 
     root.resizable(width = False, height = False) 
 
-    titre = tk.Label(root, font = ('Chalkduster',"30"), text = "Le jeu du pendu", 
+    titre = tk.Label(root, font = ('Impact',"40"), text = "Le jeu du pendu", 
                      bg = "#C0BCB5", fg = "#404040")
-    titre.place(x = 150, y = 120)
+    titre.place(anchor = 'center', x = 300, y = 120)
     
     
-    l_attendre = tk.Label(root,text = 'Le jeu commencera bientot', font = ('Chalkduster',"10"),
+    l_attendre = tk.Label(root,text = 'Le jeu commencera bientôt', font = ('Impact',"15"),
                           bg = "#C0BCB5", fg = "#404040")
     s_attendre = tk.Scale(root, from_ = 0, to = 10 , orient = 'horizontal',bg = "#C0BCB5", 
                           showvalue = 0, length = 200,  troughcolor = "#404040")
     
-    l_attendre.place(x = 210, y = 200)
-    s_attendre.place(x = 190, y = 250)
+    l_attendre.place(anchor = 'center', x = 300, y = 200)
+    s_attendre.place(anchor = 'center', x = 300, y = 250)
     
     t1_1 = threading.Thread(target = load_lib_nlp)
     t1_2 = threading.Thread(target = load_lib_glove)
