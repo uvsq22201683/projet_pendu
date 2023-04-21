@@ -902,16 +902,16 @@ def root_jeu():
 
     b_recommencer = tk.Button(jeu, text = 'Recommencer', command = recommencer, 
                           relief = 'ridge', bg = '#5C5C5C', font = ('Impact','15'))
-    b_recommencer.place(x = 800, y = 15)
+    b_recommencer.place(x = 790, y = 15)
 
     b_quitter = tk.Button(jeu, text = 'Quitter',font = ('Impact','15'), 
                           command = lambda: destroy_root(jeu), relief = 'ridge', bg = '#5C5C5C')
                           
-    b_quitter.place(x = 820, y =50)
+    b_quitter.place(x = 810, y =50)
 
     b_score = tk.Button(jeu, text = 'Score', command = root_score, 
                           relief = 'ridge', bg = '#5C5C5C', font = ('Impact','15'))
-    b_score.place(x = 825, y = 85)
+    b_score.place(x = 815, y = 85)
     
 
     l_tentatives = tk.Label(jeu, text = f'Il te reste {nb_err_dispo} tentatives',
